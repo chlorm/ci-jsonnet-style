@@ -8,8 +8,9 @@ RUN GOPATH=/opt/go go get -v github.com/google/go-jsonnet/cmd/jsonnetfmt
 
 FROM opensuse/leap:latest AS runner
 
-COPY --from=builder /opt/go/bin/jsonnetfmt /usr/local/bin/jsonnetfmt
+RUN zypper --non-interactive install git-core
 
+COPY --from=builder /opt/go/bin/jsonnetfmt /usr/local/bin/jsonnetfmt
 COPY entrypoint.bash /entrypoint.bash
 
 ENTRYPOINT ["bash", "/entrypoint.bash"]
