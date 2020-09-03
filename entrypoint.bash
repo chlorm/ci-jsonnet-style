@@ -14,6 +14,7 @@ for i in "${jsonnetFiles[@]}"; do
     jsonnetfmt --in-place "$i"
 done
 
+cd "$GITHUB_WORKSPACE"
 DIFF_RESULT="$(git diff)"
 if [ -n "$DIFF_RESULT" ]; then
     echo "$DIFF_RESULT"
