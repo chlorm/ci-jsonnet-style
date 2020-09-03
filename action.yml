@@ -1,0 +1,8 @@
+name: "ci-jsonnet-style"
+description: "Enforces coding style guidelines"
+branding:
+  icon: "check"
+  color: "green"
+runs:
+  using: "docker"
+  image: "Dockerfile"
